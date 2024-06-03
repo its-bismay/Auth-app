@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { signInSuccess } from '../redux/user/userSlice'
 
 function Oath() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const handleGooleClick = async () => {
         try{
             const provider =  new GoogleAuthProvider()
@@ -23,6 +23,7 @@ function Oath() {
                 })
             });
             const data = await res.json();
+            console.log(data)
             dispatch(signInSuccess(data))
         }
         catch (error){
